@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200605010458) do
+ActiveRecord::Schema.define(version: 20200618025642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.string "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coach_profile", force: :cascade do |t|
+    t.string "coach_id"
+    t.string "headline"
+    t.string "profile_url"
+    t.string "bio"
+    t.date "start_date"
+    t.string "education"
+    t.string "achievements"
+    t.string "accreditations"
+    t.string "website_url"
+  end
+
+  create_table "coaches", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.string "stripe_id"
+    t.string "title"
+    t.string "company_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -23,13 +51,15 @@ ActiveRecord::Schema.define(version: 20200605010458) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password"
-    t.string "mobile"
-    t.string "first_name"
+    t.string "email", null: false
+    t.string "password", null: false
+    t.string "mobile", null: false
+    t.string "first_name", null: false
     t.string "last_name"
     t.integer "coach_id"
     t.integer "customer_id"
+    t.boolean "accepted_terms", default: false
+    t.boolean "accept_sms", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
