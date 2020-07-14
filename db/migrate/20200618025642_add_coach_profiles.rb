@@ -11,6 +11,8 @@ class AddCoachProfiles < ActiveRecord::Migration[5.1]
       t.string :achievements
       t.string :accreditations
       t.string :website_url
+
+      t.timestamps
     end
   end
 end
