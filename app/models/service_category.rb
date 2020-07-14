@@ -1,0 +1,2 @@
+class ServiceCategory < ApplicationRecord
+end

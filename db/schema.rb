@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20200714025459) do
 
   create_table "subservices", force: :cascade do |t|
     t.string "name"
-    t.string "service_categorie_id"
+    t.string "service_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

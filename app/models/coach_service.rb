@@ -1,0 +1,2 @@
+class CoachService < ApplicationRecord
+end
